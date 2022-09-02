@@ -8,5 +8,5 @@
 
 @section('aside')
  @parent
- <p>Дополнительный текст</p>
+ <p>дада, это она и ты на главной</p>
  @endsection
