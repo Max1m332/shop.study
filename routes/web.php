@@ -28,3 +28,8 @@ Route::get('/catalog', function () {
 Route::get('/register', function () {
     return view('register');
 });
+
+Route::post('/register/submit', function () {
+    dd(Request::all()); 
+    })->name('register-form');
+

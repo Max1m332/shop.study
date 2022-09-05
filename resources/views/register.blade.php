@@ -16,15 +16,22 @@
 <h1> Регистрация </h1>
 <h4>Введите свои данные</h4>
 
-<form action="/register/submit" method="post">
-    <div class="form-group">
-        <label for="email">Введите Почту</label>
-        <input type="text" name="email" placeholder="Почта" id="email"><br>&nbsp
+<form action="{{ route('register-form')}}" method="post">
+    
+        
+        
+         <div class="form-group">
+         @csrf
+         <label for="email">Введите Почту</label>
+        <input type="text" name="email" placeholder="Почта" id="email" class="form-control"><br>
         <label for="password">Введите Пароль</label>
-        <input type="text" name="password" placeholder="Пароль" id="password"><br>&nbsp
+        <input type="text" name="password" placeholder="Пароль" id="password" class="form-control"><br>       
         <label for="name">Введите Имя</label>
-        <input type="text" name="name" placeholder="Имя" id="name">
+        <input type="text" name="name" placeholder="Имя" id="name" class="form-control">
+        <button type="submit" class="btn btn success">Отправить</button>
     </div>
+        
+    
 </form>
 
 
