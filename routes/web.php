@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\UserController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -25,11 +25,9 @@ Route::get('/catalog', function () {
     return view('catalog');
 });
 
-Route::get('/register', function () {
-    return view('register');
+Route::get('/login', function () {
+    return view('login');
 });
 
-Route::post('/register/submit', function () {
-    dd(Request::all()); 
-    })->name('register-form');
+Route::post('/login/submit', [UserController::class, 'login'])->name('login-form');
 
