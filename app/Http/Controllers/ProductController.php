@@ -7,5 +7,17 @@ use App\Models\Product;
 
 class ProductController extends Controller
 {
-    //
+    public function create() {
+        //
+    }
+
+    public function edit() {
+        //
+    }
+
+    public function delete() {
+        //
+    }
+
+    
 }

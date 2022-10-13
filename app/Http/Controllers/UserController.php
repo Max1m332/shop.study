@@ -20,14 +20,15 @@ class UserController extends Controller
         if($validator->fails()){
             return $this->sendError('Ошибка валидации', $validator->errors());
         
-        
+        }
        
         $email = $request->input('email');
         $password = $request->input('password');
         return "мэйл - $email,  пароль - $password";
         
+        
         // return 'okey';
-    }
+    
 }
 
 }
