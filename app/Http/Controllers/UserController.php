@@ -16,19 +16,50 @@ class UserController extends Controller
             'email' => 'required',
             'password' => 'required',
         ]);
-   
+        
+        $email = $request->input('email');
+        $this->password = $request->input('password');
+        
+       
+        
+        
+        
         if($validator->fails()){
             return $this->sendError('Ошибка валидации', $validator->errors());
-        
         }
+
+        $user = User::where('email', $email)
+                ->first();
+
+        
+        if ($user->password == $request->input('password')) {
+            
+            User::createToken($email);
+            $token = $user->token;
+            $request->session()->put('token', $token);
+            $test = $request->session()->get('token');
+            
+        } else {
+            return 'Неверный пароль';
+            
+        }
+    
+        
+        
+        
+        // $success['token'] =  $user->createToken('MyAuthApp', ['test12'])->plainTextToken;
+
+        
+        
        
-        $email = $request->input('email');
-        $password = $request->input('password');
-        return "мэйл - $email,  пароль - $password";
+       
+        
+        // dd($user);
+        
         
         
         // return 'okey';
     
-}
+    }
 
 }
